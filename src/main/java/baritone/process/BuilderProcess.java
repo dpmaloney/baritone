@@ -60,8 +60,9 @@ import net.minecraft.world.level.block.AirBlock;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.LiquidBlock;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.block.*;
-import net.minecraft.block.properties.IProperty;
+import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.HitResult;
@@ -826,20 +827,20 @@ public final class BuilderProcess extends BaritoneProcessHelper implements IBuil
         return result;
     }
 
-    public static final Set<IProperty<?>> orientationProps =
-            ImmutableSet.of(BlockRotatedPillar.AXIS, BlockLog.LOG_AXIS, BlockHorizontal.FACING,
-                    BlockStairs.FACING, BlockStairs.HALF, BlockStairs.SHAPE,
-                    BlockPane.NORTH, BlockPane.EAST, BlockPane.SOUTH, BlockPane.WEST, BlockVine.UP,
-                    BlockTrapDoor.OPEN, BlockTrapDoor.HALF
+    public static final Set<Property<?>> orientationProps =
+            ImmutableSet.of(RotatedPillarBlock.AXIS, HorizontalDirectionalBlock.FACING,
+                    StairBlock.FACING, StairBlock.HALF, StairBlock.SHAPE,
+                    StainedGlassPaneBlock.NORTH, StainedGlassPaneBlock.EAST, StainedGlassPaneBlock.SOUTH, StainedGlassPaneBlock.WEST, VineBlock.UP,
+                    TrapDoorBlock.OPEN, TrapDoorBlock.HALF
             );
 
-    private boolean sameWithoutOrientation(IBlockState first, IBlockState second) {
+    private boolean sameWithoutOrientation(BlockState first, BlockState second) {
         if (first.getBlock() != second.getBlock()) {
             return false;
         }
-        ImmutableMap<IProperty<?>, Comparable<?>> map1 = first.getProperties();
-        ImmutableMap<IProperty<?>, Comparable<?>> map2 = second.getProperties();
-        for (IProperty<?> prop : map1.keySet()) {
+        ImmutableMap<Property<?>, Comparable<?>> map1 = first.getValues();
+        ImmutableMap<Property<?>, Comparable<?>> map2 = first.getValues();
+        for (Property<?> prop : map1.keySet()) {
             if (map1.get(prop) != map2.get(prop) && !orientationProps.contains(prop)) {
                 return false;
             }
