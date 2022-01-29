@@ -202,6 +202,8 @@ public final class Settings {
 
     )));
 
+    public final Setting<Boolean> buildIgnoreDirection = new Setting<>(false);
+
     /**
      * A list of blocks to become air
      * <p>
