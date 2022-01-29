@@ -3,13 +3,13 @@
   "configurations": [
     {
       "type": "java",
-      "name": "Minecraft Client",
+      "name": "Launch Minecraft Client",
       "request": "launch",
       "cwd": "${workspaceFolder}/run",
       "console": "internalConsole",
       "stopOnEntry": false,
       "mainClass": "net.fabricmc.devlaunchinjector.Main",
-      "vmArgs": "-Dfabric.dli.config\u003dC:\\Users\\ruwag\\Documents\\Baritone\\.gradle\\loom-cache\\launch.cfg -Dfabric.dli.env\u003dclient -Dfabric.dli.main\u003dnet.fabricmc.loader.launch.knot.KnotClient",
+      "vmArgs": "\"-Dfabric.dli.config\u003dC:\\Users\\dmalo\\OneDrive\\Documents\\GitHub\\baritone\\.gradle\\loom-cache\\launch.cfg\" \"-Dfabric.dli.env\u003dclient\" \"-Dfabric.dli.main\u003dnet.fabricmc.loader.impl.launch.knot.KnotClient\"",
       "args": "",
       "env": {},
       "projectName": ""
@@ -22,8 +22,8 @@
       "console": "internalConsole",
       "stopOnEntry": false,
       "mainClass": "net.fabricmc.devlaunchinjector.Main",
-      "vmArgs": "-Dfabric.dli.config\u003dC:\\Users\\ruwag\\Documents\\Baritone\\.gradle\\loom-cache\\launch.cfg -Dfabric.dli.env\u003dserver -Dfabric.dli.main\u003dnet.fabricmc.loader.launch.knot.KnotServer",
-      "args": "nogui",
+      "vmArgs": "\"-Dfabric.dli.config\u003dC:\\Users\\dmalo\\OneDrive\\Documents\\GitHub\\baritone\\.gradle\\loom-cache\\launch.cfg\" \"-Dfabric.dli.env\u003dserver\" \"-Dfabric.dli.main\u003dnet.fabricmc.loader.impl.launch.knot.KnotServer\"",
+      "args": "\"nogui\"",
       "env": {},
       "projectName": ""
     }
